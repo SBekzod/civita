@@ -1,19 +1,20 @@
 ########################################
-#				                       #
 #           DEV PRODUCTION             #
-#                                      #
 ########################################
-version: "3"
+
+version: "3.3"
 services:
   node:
-    container_name: complex
+    container_name: civita
     restart: always
     # build: .
     image: node:16.7.0
     ports:
       - "3004:3004"
+    # MIT bu yerda martin orniga oziz nomiz kiriting, loyiha nomini ham ozgartiring
     volumes:
-      - "/home/martin/civitas/complex:/usr/src/applications"
+      - "/home/martin/civita:/usr/src/applications"
+
 
     working_dir: "/usr/src/applications"
 
@@ -26,18 +27,7 @@ services:
         max-file: "3"
 
     # FOR DEVELOPMENT
-    command: bash -c "npm install && npm run build && npm run dev"
-
-
-#   WHEN NODE-SASS/VENDOR FOLDER DOESN'T EXIST
-    #    command: bash -c "npm install && npm rebuild node-sass && npm run dev"
-    # FOR PRODUCTION
-#    command: bash -c "npm install --production && npm start"
-#    command: bash -c "npm install && node server.js && node schedule.js"
-    ## WITH THE BUILT SOURCE
-#    command: bash -c "npm start"
-# IMPORTANT FOR IWINV SERVER
-
+    command: bash -c "npm install && npm run build && npm run start"
 
 networks:
   default:

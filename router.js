@@ -35,11 +35,6 @@ router.post('/search', postController.search)
 router.post('/follow/:username', userController.mustBeLoggedIn, followController.subscribe)
 router.post('/unfollow/:username', userController.mustBeLoggedIn, userController.ifUserExists, followController.unsubscribe)
 
-// L-TALK related routes
-router.get('/l-talk-list', userController.mustBeLoggedIn, talkController.channelList)
-router.get('/l-talk/user-search', userController.mustBeLoggedIn, talkController.userSearch)
-router.get('/l-talk/user-search/:username', userController.mustBeLoggedIn, userController.getUserInfo)
-
 // L-CHAT related routes
 router.get('/l-chat/list', userController.mustBeLoggedIn, chatController.createVerifiedDataOnCookies, chatController.channelList);
 router.get('/l-chat/room', userController.mustBeLoggedIn, chatController.createVerifiedDataOnCookies, chatController.enterRoom);

@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: "complex-app",
+            name: "civita-app",
             cwd: "./",
             script: "./server.js",
             watch: false,
